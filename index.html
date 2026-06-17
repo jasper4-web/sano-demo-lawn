@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evergreen Lawn & Landscape | Professional Landscaping in the Greater Salt Lake area</title>
+<meta name="description" content="Evergreen Lawn & Landscape — trusted landscaping and yard care in the Greater Salt Lake and Wasatch Front area. Free estimates, reliable service.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+  nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:.7rem 2rem}
+  .logo{font-size:1.2rem;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.3);letter-spacing:-.02em;transition:color .3s}
+  .logo span{color:#4ade80}
+  nav.scrolled .logo{color:#1a1a1a;text-shadow:none}
+  .nav-links{display:flex;gap:1.5rem;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.9);text-decoration:none;font-size:.82rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.3);transition:all .3s}
+  nav.scrolled .nav-links a{color:#555;text-shadow:none}
+  nav.scrolled .nav-links a:hover{color:#16a34a}
+  .nav-cta{background:#16a34a!important;color:#fff!important;padding:.55rem 1.3rem;border-radius:10px;font-weight:700;text-shadow:none!important;transition:all .3s;box-shadow:0 4px 14px rgba(22,163,74,.3)}
+  .nav-cta:hover{background:#15803d!important;transform:translateY(-1px)}
+  .lang-toggle{display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);padding:.3rem .7rem;border-radius:8px;cursor:pointer;font-size:.72rem;font-weight:700;color:#fff;text-shadow:none;transition:all .3s;backdrop-filter:blur(4px)}
+  .lang-toggle:hover{background:rgba(255,255,255,.25)}
+  nav.scrolled .lang-toggle{background:rgba(0,0,0,.05);border-color:#ddd;color:#333}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('hero.png') center/cover no-repeat;filter:brightness(.55)}
+  .hero-content{position:relative;z-index:2;padding:2rem;max-width:700px}
+  .hero-badge{display:inline-block;background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.3);padding:.4rem 1rem;border-radius:999px;font-size:.7rem;font-weight:700;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.08em}
+  .hero h1{font-size:3.2rem;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.03em;margin-bottom:.75rem}
+  .hero h1 span{color:#4ade80}
+  .hero p{font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:1.5rem}
+  .hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:14px;font-size:.88rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:all .3s}
+  .btn-primary{background:#16a34a;color:#fff;box-shadow:0 6px 24px rgba(22,163,74,.35)}
+  .btn-primary:hover{background:#15803d;transform:translateY(-2px);box-shadow:0 8px 30px rgba(22,163,74,.4)}
+  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+  .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .hero-trust{margin-top:2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+  .trust-item{color:rgba(255,255,255,.8);font-size:.75rem;font-weight:600;display:flex;align-items:center;gap:.3rem}
+
+  /* SERVICES */
+  .services{padding:5rem 2rem;background:#fff}
+  .services-inner{max-width:1000px;margin:0 auto;text-align:center}
+  .section-tag{display:inline-block;color:#16a34a;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+  .section-title{font-size:2rem;font-weight:900;color:#111;letter-spacing:-.02em;margin-bottom:.5rem}
+  .section-sub{color:#666;font-size:.88rem;max-width:500px;margin:0 auto 2.5rem}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+  .svc-card{background:#fafafa;border:1px solid #eee;border-radius:18px;padding:1.75rem;text-align:left;transition:all .3s}
+  .svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.06);border-color:#d1fae5}
+  .svc-icon{font-size:1.8rem;margin-bottom:.75rem}
+  .svc-card h3{font-size:1rem;font-weight:800;color:#111;margin-bottom:.3rem}
+  .svc-card p{font-size:.78rem;color:#666;line-height:1.55}
+
+  /* WHY US */
+  .why{position:relative;padding:5rem 2rem;overflow:hidden}
+  .why-bg{position:absolute;inset:0;background:url('services.png') center/cover no-repeat;filter:brightness(.3)}
+  .why-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center}
+  .why .section-tag{color:#4ade80}
+  .why .section-title{color:#fff}
+  .why .section-sub{color:rgba(255,255,255,.7)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2rem}
+  .why-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px)}
+  .why-item h4{color:#fff;font-size:.9rem;font-weight:800;margin-bottom:.3rem}
+  .why-item p{color:rgba(255,255,255,.65);font-size:.72rem;line-height:1.5}
+
+  /* REVIEWS */
+  .reviews{padding:4rem 2rem;background:#fff}
+  .reviews-inner{max-width:900px;margin:0 auto;text-align:center}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2rem}
+  .review-card{background:#fafafa;border:1px solid #eee;border-radius:16px;padding:1.5rem;text-align:left;transition:all .3s}
+  .review-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.05);transform:translateY(-2px)}
+  .review-stars{color:#fbbf24;font-size:.9rem;margin-bottom:.5rem}
+  .review-text{font-size:.78rem;color:#444;line-height:1.55;font-style:italic;margin-bottom:.75rem}
+  .review-author{font-size:.72rem;font-weight:700;color:#111}
+  .review-date{font-size:.6rem;color:#999}
+  .google-badge{display:inline-flex;align-items:center;gap:.4rem;background:#f8f9fa;border:1px solid #e5e7eb;padding:.4rem .8rem;border-radius:8px;font-size:.65rem;font-weight:700;color:#333;margin-top:1.5rem}
+
+  /* BOOKING FORM */
+  .booking{padding:5rem 2rem;background:#f8faf8}
+  .booking-inner{max-width:600px;margin:0 auto}
+  .booking-card{background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.04)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+  .form-group{display:flex;flex-direction:column;gap:.25rem}
+  .form-group.full{grid-column:1/-1}
+  .form-group label{font-size:.68rem;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.04em}
+  .form-group input,.form-group select,.form-group textarea{padding:.7rem .9rem;border:1.5px solid #e5e7eb;border-radius:12px;font-size:.85rem;font-family:inherit;outline:none;transition:all .2s;background:#fafafa}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#16a34a;background:#fff;box-shadow:0 0 0 3px rgba(22,163,74,.08)}
+  .form-group textarea{resize:vertical;min-height:80px}
+  .submit-btn{width:100%;margin-top:1rem;padding:1rem;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border:none;border-radius:14px;font-size:.95rem;font-weight:800;font-family:inherit;cursor:pointer;transition:all .3s;box-shadow:0 6px 24px rgba(22,163,74,.3)}
+  .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(22,163,74,.4)}
+  .form-note{text-align:center;font-size:.65rem;color:#999;margin-top:.75rem}
+
+  /* COMING SOON */
+  .coming-soon{padding:4rem 2rem;background:linear-gradient(135deg,#0f172a,#1e293b)}
+  .coming-inner{max-width:900px;margin:0 auto;text-align:center}
+  .coming-soon .section-tag{color:#818cf8}
+  .coming-soon .section-title{color:#fff}
+  .coming-soon .section-sub{color:rgba(255,255,255,.5)}
+  .cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
+  .cs-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.5rem;text-align:left;position:relative;overflow:hidden;transition:all .3s}
+  .cs-card:hover{border-color:rgba(129,140,248,.3);background:rgba(129,140,248,.05)}
+  .cs-badge{position:absolute;top:.75rem;right:.75rem;background:rgba(129,140,248,.15);color:#a5b4fc;font-size:.5rem;font-weight:800;padding:.2rem .5rem;border-radius:5px;text-transform:uppercase;letter-spacing:.06em}
+  .cs-icon{font-size:1.5rem;margin-bottom:.5rem}
+  .cs-card h4{color:#fff;font-size:.85rem;font-weight:800;margin-bottom:.3rem;margin-top:.25rem}
+  .cs-card p{color:rgba(255,255,255,.45);font-size:.68rem;line-height:1.5}
+
+  /* WHATSAPP */
+  .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;transition:all .3s;text-decoration:none;font-size:1.6rem}
+  .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+  .wa-tooltip{position:absolute;right:70px;top:50%;transform:translateY(-50%);background:#fff;color:#333;font-size:.72rem;font-weight:700;padding:.5rem .8rem;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.1);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .3s}
+  .wa-float:hover .wa-tooltip{opacity:1}
+
+  /* FOOTER */
+  footer{background:#111;color:#fff;padding:3rem 2rem;text-align:center}
+  .footer-logo{font-size:1.3rem;font-weight:900;margin-bottom:.5rem}
+  .footer-logo span{color:#4ade80}
+  footer p{color:#555;font-size:.75rem;line-height:1.6}
+  footer a{color:#4ade80;text-decoration:none}
+  .footer-contact{margin:1rem 0;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+  .footer-contact a{color:#aaa;font-size:.82rem;font-weight:600}
+  .footer-contact a:hover{color:#4ade80}
+  .footer-copy{font-size:.6rem;color:#333;margin-top:1.5rem}
+
+  @media(max-width:650px){
+    .hero h1{font-size:2rem}
+    .form-row{grid-template-columns:1fr}
+    .nav-links a:not(.nav-cta):not(.lang-toggle){display:none}
+    .booking-card{padding:1.5rem}
+    .wa-float{bottom:1rem;right:1rem;width:48px;height:48px;font-size:1.3rem}
+  }
+</style>
+</head>
+<body>
+<div data-demo-badge style="position:fixed;top:12px;right:12px;z-index:2147483647;background:#E8943A;color:#0a0a0a;font:600 11px/1 -apple-system,system-ui,sans-serif;padding:6px 11px;border-radius:100px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 2px 10px rgba(0,0,0,.45);pointer-events:none">Demo</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">Evergreen <span>Lawn Care</span></div>
+  <div class="nav-links">
+    <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+    <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
+    <a href="#why" data-en="Why Us" data-es="¿Por Qué?">Why Us</a>
+    <div class="lang-toggle" onclick="toggleLanguage()" id="lang-btn"><span class="flag">🇺🇸</span> <span id="lang-label">EN</span></div>
+    <a href="#booking" class="nav-cta" data-en="📞 Free Estimate" data-es="📞 Cotización Gratis">📞 Free Estimate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge" id="h-badge">🌿 Serving the Greater Salt Lake & Wasatch Front Area</div>
+    <h1 id="h-title">Your Lawn <span>Deserves Better.</span></h1>
+    <p id="h-sub">Professional lawn care and landscaping by Evergreen Lawn & Landscape — trusted by families across the Greater Salt Lake Valley. Weekly mowing, seasonal clean-ups, and full yard transformations.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn btn-primary" id="h-cta">Get a Free Estimate</a>
+      <a href="tel:5550100000" class="btn btn-outline">📞 (555) 010-0000</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item" data-en="⭐ 5-Star Rated" data-es="⭐ 5 Estrellas">⭐ 5-Star Rated</div>
+      <div class="trust-item">🏔️ the Greater Salt Lake area</div>
+      <div class="trust-item" data-en="✅ Licensed & Insured" data-es="✅ Licenciado y Asegurado">✅ Licensed & Insured</div>
+      <div class="trust-item" data-en="📅 Same-Week Service" data-es="📅 Servicio Esta Semana">📅 Same-Week Service</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="section-tag" data-en="What We Do" data-es="Lo Que Hacemos">What We Do</div>
+    <div class="section-title" data-en="Professional Lawn & Yard Services" data-es="Servicios Profesionales de Jardín">Professional Lawn & Yard Services</div>
+    <p class="section-sub" data-en="Whether it's weekly maintenance or a full yard overhaul — we've got you covered." data-es="Ya sea mantenimiento semanal o renovación completa — te cubrimos.">Whether it's weekly maintenance or a full yard overhaul — we've got you covered.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon">🌱</div>
+        <h3 data-en="Weekly Mowing & Edging" data-es="Corte y Orilla Semanal">Weekly Mowing & Edging</h3>
+        <p data-en="Consistent, reliable weekly mowing to keep your lawn looking crisp. Clean edges and stripe patterns that make your neighbors jealous." data-es="Corte semanal confiable para mantener tu jardín impecable. Bordes limpios y patrones que harán envidiar a tus vecinos.">Consistent, reliable weekly mowing to keep your lawn looking crisp. Clean edges and stripe patterns that make your neighbors jealous.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🍂</div>
+        <h3 data-en="Spring & Fall Clean-Ups" data-es="Limpiezas de Primavera y Otoño">Spring & Fall Clean-Ups</h3>
+        <p data-en="Leaf removal, bed prep, and full yard clean-ups for Utah's changing seasons." data-es="Recolección de hojas, preparación de camas y limpieza completa para las estaciones de Utah.">Leaf removal, bed prep, and full yard clean-ups for Utah's changing seasons. Get your yard ready for winter or wake it up for spring.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🌳</div>
+        <h3 data-en="Tree & Hedge Trimming" data-es="Poda de Árboles y Arbustos">Tree & Hedge Trimming</h3>
+        <p data-en="Keep your trees and hedges shaped and healthy. We trim, prune, and remove overgrowth." data-es="Mantén tus árboles y arbustos con forma y saludables. Podamos y eliminamos maleza.">Keep your trees and hedges shaped and healthy. We trim, prune, and remove overgrowth to keep your property safe and looking great.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">💧</div>
+        <h3 data-en="Sprinkler & Irrigation" data-es="Aspersores e Irrigación">Sprinkler & Irrigation</h3>
+        <p data-en="Utah summers are dry — we install and repair sprinkler systems to keep your lawn green without wasting water." data-es="Los veranos de Utah son secos — instalamos y reparamos aspersores para mantener tu jardín verde sin desperdiciar agua.">Utah summers are dry — we install and repair sprinkler systems to keep your lawn green through the Wasatch heat without wasting water.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🪨</div>
+        <h3 data-en="Hardscaping & Pavers" data-es="Piedra y Adoquines">Hardscaping & Pavers</h3>
+        <p data-en="Patios, retaining walls, and walkways that add value and curb appeal." data-es="Patios, muros de contención y caminos que agregan valor y atractivo.">Patios, retaining walls, and walkways that add value and curb appeal. Quality stonework designed for Utah's climate.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">✨</div>
+        <h3 data-en="Full Yard Makeovers" data-es="Renovación Total de Jardín">Full Yard Makeovers</h3>
+        <p data-en="New sod, design, planting, mulch, and more. We transform tired yards into spaces you want to enjoy." data-es="Pasto nuevo, diseño, plantación, mantillo y más. Transformamos jardines cansados en espacios donde quieres estar.">New sod, design, planting, mulch, and more. We transform tired yards into spaces you actually want to spend time in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-bg"></div>
+  <div class="why-content">
+    <div class="section-tag" data-en="Why Greater Salt Lake Families Choose Us" data-es="¿Por Qué Nos Eligen las Familias de Greater Salt Lake?">Why Greater Salt Lake Families Choose Us</div>
+    <div class="section-title" data-en="We Treat Your Yard Like It's Ours" data-es="Tratamos Tu Jardín Como Si Fuera Nuestro">We Treat Your Yard Like It's Ours</div>
+    <p class="section-sub" data-en="Family-owned, detail-obsessed, and right here in the valley." data-es="Negocio familiar, obsesionados con los detalles, y aquí mismo en el valle.">Family-owned, detail-obsessed, and right here in the valley.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <h4 data-en="🏠 Locally Owned" data-es="🏠 Negocio Local">🏠 Locally Owned</h4>
+        <p data-en="We live and work in the Greater Salt Lake Valley. Your neighbor is our neighbor." data-es="Vivimos y trabajamos en el Valle de Greater Salt Lake. Tu vecino es nuestro vecino.">We live and work in the Greater Salt Lake Valley. Your neighbor is our neighbor.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-en="⏰ Always On Time" data-es="⏰ Siempre Puntuales">⏰ Always On Time</h4>
+        <p data-en="We show up when we say we will. Every single week." data-es="Llegamos cuando decimos. Cada semana. Sin excusas.">We show up when we say we will. Every single week. No ghosting, no excuses.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-en="💰 Fair Pricing" data-es="💰 Precios Justos">💰 Fair Pricing</h4>
+        <p data-en="Honest quotes, no hidden fees. We price fairly because we want you for life." data-es="Cotizaciones honestas, sin cuotas ocultas. Precios justos porque te queremos de por vida.">Honest quotes, no hidden fees. We price fairly because we want you for life, not just one job.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-en="❄️ Utah-Smart" data-es="❄️ Expertos en Utah">❄️ Utah-Smart</h4>
+        <p data-en="We know Utah's seasons, soil, and water rules. Your lawn gets exactly what it needs." data-es="Conocemos las estaciones, el suelo y las reglas de agua de Utah. Tu jardín recibe exactamente lo que necesita.">We know Utah's seasons, soil, and water rules. Your lawn gets exactly what it needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-tag" data-en="What Our Customers Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Customers Say</div>
+    <div class="section-title" data-en="5-Star Service, Every Time" data-es="Servicio 5 Estrellas, Siempre">5-Star Service, Every Time</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text" data-en="&quot;Alejandra and her crew are amazing. They've been doing our yard for 2 years and it always looks perfect. Best lawn care in the valley!&quot;" data-es="&quot;Alejandra y su equipo son increíbles. Llevan 2 años cuidando nuestro jardín y siempre se ve perfecto. ¡El mejor servicio del valle!&quot;">"Alejandra and her crew are amazing. They've been doing our yard for 2 years and it always looks perfect. Best lawn care in the valley!"</div>
+        <div class="review-author">— Sarah M.</div>
+        <div class="review-date">Sandy, UT · 2 weeks ago</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text" data-en="&quot;Super reliable and the yard looks better than ever. They even fixed our sprinkler system same day. Highly recommend!&quot;" data-es="&quot;Súper confiables y el jardín se ve mejor que nunca. Arreglaron nuestro sistema de riego el mismo día. ¡Altamente recomendados!&quot;">"Super reliable and the yard looks better than ever. They even fixed our sprinkler system same day. Highly recommend!"</div>
+        <div class="review-author">— David R.</div>
+        <div class="review-date">Draper, UT · 1 month ago</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text" data-en="&quot;Finally found a lawn care company that shows up on time. Great communication, fair prices, beautiful work. 10/10.&quot;" data-es="&quot;Por fin encontré una empresa que llega a tiempo. Excelente comunicación, precios justos, trabajo hermoso. 10/10.&quot;">"Finally found a lawn care company that actually shows up on time. Great communication, fair prices, beautiful work. 10/10."</div>
+        <div class="review-author">— Jennifer L.</div>
+        <div class="review-date">Murray, UT · 3 weeks ago</div>
+      </div>
+    </div>
+    <div class="google-badge">⭐ 5.0 on Google · Verified Reviews</div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div class="section-tag" data-en="Free Estimate" data-es="Cotización Gratis">Free Estimate</div>
+      <div class="section-title" data-en="Get Your Free Quote Today" data-es="Obtén Tu Cotización Hoy">Get Your Free Quote Today</div>
+      <p class="section-sub" data-en="Fill out the form and we'll get back to you within a few hours." data-es="Llena el formulario y te respondemos en unas horas.">Fill out the form and we'll get back to you within a few hours.</p>
+    </div>
+    <div class="booking-card">
+      <form id="lead-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="First Name" data-es="Nombre">First Name</label>
+            <input type="text" placeholder="Maria" required id="fname">
+          </div>
+          <div class="form-group">
+            <label data-en="Last Name" data-es="Apellido">Last Name</label>
+            <input type="text" placeholder="Garcia" id="lname">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Phone Number" data-es="Teléfono">Phone Number</label>
+            <input type="tel" placeholder="(555) 010-0000" required id="phone">
+          </div>
+          <div class="form-group">
+            <label data-en="Email (optional)" data-es="Email (opcional)">Email (optional)</label>
+            <input type="email" placeholder="maria@email.com" id="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Service Needed" data-es="Servicio">Service Needed</label>
+            <select id="service"><option>Weekly Mowing</option><option>Spring/Fall Clean-Up</option><option>Tree & Hedge Trimming</option><option>Sprinkler / Irrigation</option><option>Hardscaping</option><option>Full Yard Makeover</option><option>Other</option></select>
+          </div>
+          <div class="form-group">
+            <label data-en="Preferred Day" data-es="Día Preferido">Preferred Day</label>
+            <select id="day"><option>Any Day</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option></select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label data-en="Address or Area" data-es="Dirección o Zona">Address or Area</label>
+          <input type="text" placeholder="e.g., Draper, Sandy, Murray..." id="address">
+        </div>
+        <div class="form-group full" style="margin-top:.75rem">
+          <label data-en="Anything Else?" data-es="¿Algo Más?">Anything Else?</label>
+          <textarea placeholder="Tell us about your yard..." id="notes"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" data-en="🌿 Request My Free Estimate" data-es="🌿 Solicitar Mi Cotización Gratis">🌿 Request My Free Estimate</button>
+      </form>
+      <div class="form-note" data-en="We respond within a few hours · No obligation · Serving SLC, Sandy, Draper, Murray, West Valley & more" data-es="Respondemos en unas horas · Sin compromiso · Sirviendo SLC, Sandy, Draper, Murray, West Valley y más">We respond within a few hours · No obligation · Serving SLC, Sandy, Draper, Murray, West Valley & more</div>
+      <div id="success-msg" style="display:none;margin-top:1rem;padding:1rem;background:#dcfce7;border:1px solid #bbf7d0;border-radius:12px;text-align:center;color:#15803d;font-weight:700;font-size:.88rem">
+        ✅ Thank you! We'll call you back shortly.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="coming-soon" id="coming-soon">
+  <div class="coming-inner">
+    <div class="section-tag" data-en="Coming Soon" data-es="Próximamente">Coming Soon</div>
+    <div class="section-title" data-en="Features We're Building For You" data-es="Funciones Que Estamos Creando">Features We're Building For You</div>
+    <p class="section-sub" data-en="Your website will keep getting better. Here's what's next." data-es="Tu sitio web seguirá mejorando. Esto es lo que viene.">Your website will keep getting better. Here's what's next.</p>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-badge">Phase 2</div>
+        <div class="cs-icon">📅</div>
+        <h4 data-en="Online Booking" data-es="Reservas en Línea">Online Booking</h4>
+        <p data-en="Customers pick a date, choose a service, and book you directly. No calls needed." data-es="Los clientes eligen fecha, servicio y te reservan directamente. Sin llamadas.">Customers pick a date, choose a service, and book you directly. No back-and-forth calls needed.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Phase 2</div>
+        <div class="cs-icon">💳</div>
+        <h4 data-en="Online Payments" data-es="Pagos en Línea">Online Payments</h4>
+        <p data-en="Accept credit cards, Venmo, and Zelle through your website. Get paid faster." data-es="Acepta tarjetas, Venmo y Zelle en tu sitio. Cobra más rápido.">Accept credit cards, Venmo, and Zelle right through your website. Get paid faster, no chasing invoices.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Phase 2</div>
+        <div class="cs-icon">📸</div>
+        <h4 data-en="Before & After Gallery" data-es="Galería Antes y Después">Before & After Gallery</h4>
+        <p data-en="Showcase your best work with side-by-side photos. Let your results sell for you." data-es="Muestra tu mejor trabajo con fotos lado a lado. Deja que tus resultados vendan.">Showcase your best work with side-by-side photos. Let your results sell for you.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Phase 3</div>
+        <div class="cs-icon">🤖</div>
+        <h4 data-en="AI Text Assistant" data-es="Asistente IA por Texto">AI Text Assistant</h4>
+        <p data-en="An AI chatbot answers customer questions 24/7 — even when you're out mowing." data-es="Un chatbot IA responde preguntas 24/7 — incluso mientras cortas césped.">An AI chatbot answers customer questions 24/7 via text — even when you're out mowing lawns.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Phase 3</div>
+        <div class="cs-icon">📊</div>
+        <h4 data-en="Customer Dashboard" data-es="Panel del Cliente">Customer Dashboard</h4>
+        <p data-en="See all your leads, bookings, and revenue in one place." data-es="Ve todos tus leads, reservas e ingresos en un solo lugar.">See all your leads, bookings, and revenue in one place. Know exactly how your business is doing.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Phase 3</div>
+        <div class="cs-icon">📧</div>
+        <h4 data-en="Auto Follow-Ups" data-es="Seguimiento Automático">Auto Follow-Ups</h4>
+        <p data-en="Automatic emails and texts after every job — asking for reviews, offering deals." data-es="Correos y textos automáticos después de cada trabajo — pidiendo reseñas, ofreciendo promociones.">Automatic emails and texts go out after every job — asking for reviews, offering seasonal deals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="#" target="_blank" class="wa-float">
+  💬
+  <div class="wa-tooltip" data-en="Chat with us on WhatsApp" data-es="Escríbenos por WhatsApp">Chat with us on WhatsApp</div>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Evergreen <span>Lawn Care</span></div>
+  <p data-en="Professional lawn care & landscaping for the Greater Salt Lake Valley." data-es="Cuidado de jardín y paisajismo profesional para el Valle de Greater Salt Lake.">Professional lawn care & landscaping for the Greater Salt Lake Valley.</p>
+  <div class="footer-contact">
+    <a href="tel:5550100000">📞 (555) 010-0000</a>
+    <a href="mailto:evergreenlawncare@email.com">✉️ evergreenlawncare@email.com</a>
+    <a href="#">📍 the Greater Salt Lake area</a>
+  </div>
+  <div class="footer-copy">© 2026 Evergreen Lawn & Landscape · Greater Salt Lake, Sandy, Draper, Murray, West Valley City & the Wasatch Front</div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Language toggle — swaps ALL data-en/data-es elements
+let currentLang='en';
+function toggleLanguage(){
+  currentLang=currentLang==='en'?'es':'en';
+  document.getElementById('lang-btn').querySelector('.flag').textContent=currentLang==='es'?'🇲🇽':'🇺🇸';
+  document.getElementById('lang-label').textContent=currentLang==='es'?'ES':'EN';
+  document.documentElement.lang=currentLang;
+  // Hero special elements
+  document.getElementById('h-badge').textContent=currentLang==='es'?'🌿 Sirviendo el Área de Greater Salt Lake y Wasatch Front':'🌿 Serving the Greater Salt Lake & Wasatch Front Area';
+  document.getElementById('h-title').innerHTML=currentLang==='es'?'Tu Jardín <span>Merece Más.</span>':'Your Lawn <span>Deserves Better.</span>';
+  document.getElementById('h-sub').textContent=currentLang==='es'?'Cuidado de jardín y paisajismo profesional por Evergreen Lawn & Landscape — de confianza para familias en todo el Valle de Greater Salt Lake.':'Professional lawn care and landscaping by Evergreen Lawn & Landscape — trusted by families across the Greater Salt Lake Valley. Weekly mowing, seasonal clean-ups, and full yard transformations.';
+  document.getElementById('h-cta').textContent=currentLang==='es'?'Cotización Gratis':'Get a Free Estimate';
+  // All data-en/data-es elements
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const key=currentLang==='es'?'es':'en';
+    if(el.dataset[key]) el.textContent=el.dataset[key];
+  });
+}
+
+// Lead capture
+function handleSubmit(e){
+  e.preventDefault();
+  const lead={name:document.getElementById('fname').value+' '+document.getElementById('lname').value,phone:document.getElementById('phone').value,email:document.getElementById('email').value,service:document.getElementById('service').value,day:document.getElementById('day').value,address:document.getElementById('address').value,notes:document.getElementById('notes').value,date:new Date().toISOString()};
+  const leads=JSON.parse(localStorage.getItem('evergreen_leads')||'[]');
+  leads.push(lead);
+  localStorage.setItem('evergreen_leads',JSON.stringify(leads));
+  document.getElementById('lead-form').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+</script>
+</body>
+</html>
